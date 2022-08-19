@@ -1,0 +1,528 @@
+<?php require_once "include/controllerUserData.php"; ?>
+
+<?php 
+
+
+
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> TRIPBEEP </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon " type="image/x-icon"  href="assets/images/tb2.jpg">
+	
+    
+     
+    <link rel="stylesheet" href="css/style12.css">
+	<link rel="stylesheet" href="css/dlt vehicle PROFILE.css">
+	
+  </head>
+  <body>
+    
+<?php include('include/loggedInHeader.php');?>
+
+ <header class="ScriptHeader">
+    <div class="rt-container">
+    	<div class="col-rt-12">
+        	<div class="rt-heading">
+            	<h1 style="font-color:seagreen;font-size:60px;text-align: center;">Find Ride</h1>
+               
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+ <form class="search" method="post" action="index.php" >
+     <input type="text" name=" search" placeholder=" Leaving From"/ id="filter_Users"/>
+     <br>
+     <br>
+     <input type="text" name=" search" placeholder=" Going To"/ id="filter_Users"/>
+     <ul class="results" >
+    
+     </ul>
+   </form>
+<
+
+
+   <hr></hr>
+
+<!-- <div class="mt-l pt-m mb-m pb-m border-t border-b border-solid border-grey-light flex"><a class="flex flex-1 no-hover" href="/search-car-sharing/date"><span class="kirk-item kirk-item--highlighted kirk-item--clickable sc-Galmp kNDdlo"><span class="kirk-item-leftWrapper"><span class="kirk-item-leftText"><span class="kirk-text kirk-text-title sc-faUpoM gHhpVx">Today</span></span></span></span></a><a class="flex flex-1 no-hover" href="/search-car-sharing/seat"><span class="kirk-item kirk-item--highlighted kirk-item--clickable sc-Galmp kNDdlo"><span class="kirk-item-leftWrapper"><span class="kirk-item-leftText"><span class="kirk-text kirk-text-title sc-faUpoM gHhpVx">1 passenger</span></span></span></span></a></div><hr></hr> -->
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+  
+  border-bottom: 1px solid #DDD;
+  border-left: 20px;
+}
+
+/*tr:hover {background-color: #D6EEEE;}*/
+button.mbtn {
+  padding:0.6em 2em;
+  border-radius: 30px;
+  color:#fff;
+  background-color:Seagreen;
+  font-size:1.1em;
+  border:0;
+  cursor:pointer;
+  margin:1em;
+  position:center;
+  
+}
+                    #content {
+                    max-width: 200px;
+                    margin: auto;
+                    left: 2%;
+                    right: 2%;
+                    position: absolute;
+                
+                    }
+</style>
+
+<div>
+<div id="content">
+
+<button class="mbtn blue" style=" position:center",;><a href="roffer/tripcard.php"  style="color: inherit;" > Search</a></button>
+</div>
+<table>
+  <tr>
+    <!-- <th>First Name</th> -->
+    <th><font color="seagreen"><a href="publish/when1.php">Today</font></a></th>
+    <th><font color="seagreen"><a href="roffer/count1.php">1 passanger</font></th>
+  </tr>
+
+</table>    
+
+</div>
+
+
+ 
+  <div class="container"> 
+  </div>
+</div>  
+    
+<link rel="stylesheet" href="page2.css">
+</header>
+
+<style>
+    ftco-navb  ar-light.scrolled.awake {
+    margin-top: 0px;
+    -webkit-transition: .3s all ease-out;
+    -o-transition: .3s all ease-out;
+    transition: .3s all ease-out;
+}
+.ftco-navbar-light.scrolled {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    margin-top: -130px;
+    background: white !important;
+    -webkit-box-shadow: 0 0 10px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 10%);
+}
+/* @media (max-width: 991.98px){ */
+.ftco-navbar-light {
+    background: #000000 !important;
+    position: relative;
+    top: 0;
+}
+.ftco-navbar-light {
+    background: transparent !important;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    z-index: 3;
+}
+.bg-dark {
+    background-color: white !important;
+}
+.navbar {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+  
+}
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+nav {
+    display: block;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background: #ccc;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: white;
+}
+body {
+    margin: 1;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color:rgb(255 255 255 / 70%);
+}
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+html {
+    font-family: sans-serif;
+    line-height: 2.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  border-box: blue;
+}
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.ftco-footer {
+    font-size: 16px;
+    background: black;
+    padding: 1em 0;
+}
+.ftco-bg-dark {
+    background:black;
+}
+.ftco-section {
+    padding: 1em 0;
+    position: relative;
+}
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: ;
+
+header{
+  background-color:#ee6664; 
+  text-align:center;
+  padding:10px 0px; 
+}
+header h1{
+  margin:0px;
+  font-size:26px; 
+  color:#414141; 
+  font-weight:1000;
+  font-family: 'Acme', sans-serif;
+}
+
+h1 span{
+  font-weight:400;
+}
+body{
+  font-family: "Open Sans", arial;
+  color:#fff;
+  background:white;  
+  margin:0;
+}
+.flex{
+  display:flex;
+}
+nav{
+  margin-top:15px;
+  background:#DAF7A6;
+  height:30%;
+  width:30%;
+  box-shadow:4px 4px 4px #3C3F35;
+  border-radius:5px;
+  margin-left:1%;
+  float:left;
+  backgrond:pink;
+  position:sticky;
+  position:-webkit-sticky;
+  top:20px;
+  padding:20px;
+}
+nav ul{
+list-style-type:none;
+padding:0;
+}
+
+
+nav a {
+  text-decoration:none;
+  color:BLACK;
+  font-size: 16px;
+  display:block;
+  border-bottom:1px solid #03A2A2;  
+}
+.fa {
+  position: right;
+  top:12px;
+  width: 70px;
+  height: 36px;
+  text-align: right;
+  font-size:20px;
+}
+nav span {
+  position:right;
+  top:12px;
+}
+.logo{
+  position:relative;
+  top:0px;
+  padding:2px;
+  background-color:white;
+  color:#07145D; 
+  font-family: 'Big Shoulders Display', cursive;
+  text-align:left;
+  line-height: 0.5;
+}
+.logo p{
+  color:black;
+}
+{
+  color:#fff;
+  background-color:#3863F4; 
+}
+.contents{
+  background-color:#3E414F;
+  padding:5px 30px;
+  width:75%;
+  margin:15px 3%;
+ 
+  box-shadow:4px 4px 4px #3C3F35;
+  border-radius:5px;
+}
+
+.contents h3{
+  border-bottom: 1px solid grey;
+  padding-bottom:10px;
+  font-family: 'Shadows Into Light', cursive;
+  margin-bottom: 20px
+}
+
+.contents p{
+  text-align:justify;
+  margin-bottom:50px;
+  line-height:2;
+}
+footer{
+  background:#323232;
+  padding:10px;
+  height:25px;
+
+}
+.left{  
+  float:left;
+  margin-left:3%;
+}
+.right{
+  display:inline-block;
+  float:right;
+  margin-right:3%;
+}
+.right a{
+  color:white;
+  margin-right:8px;
+  text-decoration:none;
+}
+}
+.button {
+  background-color: #01d28e;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}-
+
+.button:hover {
+  background-color: skyblue;
+}
+.menu{
+width:20%;
+float:left;
+padding:10px;
+border:3px solid white;
+background-color:white;
+}
+.main{
+width:80%;
+float:left;
+padding:10px;
+background-color:white;
+}
+.search {
+    position:left;
+    margin: 0 auto;
+    width: 800px;
+  background-color:white;
+}
+.search input {
+    height:60px;
+    width: 90%;
+    padding: 0 10px 0 10px;
+    background: white url("https://cssdeck.com/uploads/media/items/5/5JuDgOa.png") 0px 20px no-repeat;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #a8acbc #babdcc #c0c3d2;
+    border-radius: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: inset 1 0px #e5e7ed, 0 1px 0 #fcfcfc;
+    -moz-box-shadow: inset 0 2px #e5e7ed, 0 1px 0 #fcfcfc;
+    -ms-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+    -o-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+    box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+}
+.search input:focus {
+    outline: skyblue;
+    border-color: #66b1ee;
+    -webkit-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+    -moz-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+    -ms-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+    -o-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+    box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+}
+.search .results a:hover {
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+    border-color: #2380dd #2179d5 #1a60aa;
+    background-color: #338cdf;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #59aaf4), color-stop(100%, #338cdf));
+    background-image: -webkit-linear-gradient(top, #59aaf4, #338cdf);
+    background-image: -moz-linear-gradient(top, #59aaf4, #338cdf);
+    background-image: -ms-linear-gradient(top, #59aaf4, #338cdf);
+    background-image: -o-linear-gradient(top, #59aaf4, #338cdf);
+    background-image: linear-gradient(top, #59aaf4, #338cdf);
+    -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+    -ms-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+    -o-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+}
+:-moz-placeholder {
+    color: #a7aabc;
+    font-weight: 200;
+}
+
+::-webkit-input-placeholder {
+    color: #a7aabc;
+    font-weight: 200;
+}
+
+.lt-ie9 .search input { line-height: 20px }
+.search .results a {
+    display: block;
+    position: relative;
+    margin: 0 -1px;
+    padding: 10px 40px 6px 10px;
+    color: #808394;
+    font-weight: 500;
+    text-shadow: 0 1px #fff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.profile-pic img{
+ 
+    width: 50px;
+    height: 50px;
+}   
+
+body{
+    background-color: white;
+}
+
+    
+} 
+.profile-badge{
+    border:1px solid #c1c1c1;
+    padding:5px;
+    position: relative;
+}
+
+
+</style>
+	</body>
+</html>
